@@ -4,11 +4,13 @@ import android.graphics.Bitmap;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,15 +20,23 @@ public class MainActivity extends AppCompatActivity {
     String urlPrep = ip + "/mdinein/";
     String restId = "laks1";
     WebInterface webInterface;
-
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         webView = (WebView)findViewById(R.id.webview);
+        button = (Button)findViewById(R.id.testweblog);
         urlPrep = urlPrep +restId;
         setWebViewSettings();
         loadInRestoMenu();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webView.evaluateJavascript("closedARStuff()",null);
+            }
+        });
     }
 
     void setWebViewSettings(){
