@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(getApplicationContext(), "message is" + msg + "\n" + "data is "+ data,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "message is  : " + msg + "\n" + "data is   :"+ data,Toast.LENGTH_LONG).show();
             }
         });
 
